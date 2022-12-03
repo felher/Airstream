@@ -147,3 +147,12 @@ Test / sourceGenerators += Def.task {
     ).run
   )
 }.taskValue
+
+Test / unmanagedSourceDirectories += {
+  CrossVersion.partialVersion(scalaVersion.value) match {
+    case Some((2, 12)) => baseDirectory.value / "src" / "test" / "scala-2.12"
+    case Some((2, 13)) => baseDirectory.value / "src" / "test" / "scala-2.13"
+    case Some((3, _)) => baseDirectory.value / "src" / "test" / "scala-3"
+    case _ => ???
+  }
+}
