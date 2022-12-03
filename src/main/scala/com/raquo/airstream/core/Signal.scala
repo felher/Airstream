@@ -131,7 +131,7 @@ trait Signal[+A] extends Observable[A] with BaseObservable[Signal, A] with Signa
 
 }
 
-object Signal {
+object Signal extends SignalPlatformSpecific {
 
   def fromValue[A](value: A): Val[A] = Val(value)
 

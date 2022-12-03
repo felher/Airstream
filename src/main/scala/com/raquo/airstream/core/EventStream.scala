@@ -114,7 +114,7 @@ trait EventStream[+A] extends Observable[A] with BaseObservable[EventStream, A] 
 
 }
 
-object EventStream {
+object EventStream extends EventStreamPlatformSpecific {
 
   /** Event stream that never emits anything */
   val empty: EventStream[Nothing] = {
